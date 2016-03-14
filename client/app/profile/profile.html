@@ -1,0 +1,57 @@
+<ul>Username:{{$ctrl.current_user.name}}</ul>
+<ul>Email:{{$ctrl.current_user.email}}</ul>
+<br><ul>Wish List: 
+<ul ng-repeat="app in $ctrl.current_user.wishlist">
+	<img ng-src="{{app.app.image}}">
+	<li>Name: {{app.app.name}}</li>
+	<li>Description: {{app.app.description}}</li>
+	<li>Date of adding to database: {{app.added_date | date}}</li>
+    <li>Numbers of players: {{app.app.consumer_number | number}}</li>
+    <li ng-show="app.app.price==0">Free to play</li>
+    <li ng-show="app.app.price!=0">Price: £{{app.app.price}}</li>
+    <li ng-show="app.app.stock_state">Stock State: In Stock</li>
+    <li ng-show="!app.app.stock_state">Stock State: Not In Stock</li>
+</ul></ul><ul ng-show="$ctrl.current_user.power=='developer'">
+<br>App List: 
+<ul ng-repeat="app in $ctrl.current_user.applist">
+	<img ng-src="{{app.app.image}}">
+	<li>Name: {{app.app.name}}</li>
+	<li>Description: {{app.app.description}}</li>
+	<li>Date of adding to database: {{app.added_date | date}}</li>
+    <li>Numbers of players: {{app.app.consumer_number | number}}</li>
+    <li ng-show="app.app.price==0">Free to play</li>
+    <li ng-show="app.app.price!=0">Price: £{{app.app.price}}</li>
+    <li ng-show="app.app.stock_state">Stock State: In Stock</li>
+    <li ng-show="!app.app.stock_state">Stock State: Not In Stock</li>
+</ul>
+<ul><ul>
+	<button ng-show="!$ctrl.ipCookie('Upload')" class="btn btn-warning" type="button" ng-click="$ctrl.uploadapp()">Upload new app</button>
+</ul></ul>
+<ul>
+<ul ng-show="$ctrl.ipCookie('Upload')">
+    <form name="form" ng-submit="$ctrl.handleUploadBtnClick($ctrl.applicationForm)" role="form"  novalidate>
+        <div class="form-group">
+    		<label for="name">Select Zip File</label>
+            <input name="$ctrl.uploadedFile" type="file"/>
+        </div>
+  		<div class="form-group">
+    		<label for="name">Name</label>
+    		<input type="name" name="name" id="name" ng-model="$ctrl.applicationForm.name" required="required" class="form-control" min="3" max="10">
+  			<span ng-show="form.name.$error.required">Please input name!</span>
+  			<span ng-show="form.name.$error.length.min || form.name.$error.length.max">Length of name is invalid!(Should be 3-10)</span>
+  		</div>
+  		<div class="form-group">
+    		<label for="description">Description</label>
+    		<input type="description" name="description" id="description" ng-model="$ctrl.applicationForm.description" required="required" class="form-control" min="3">
+  			<span ng-show="form.description.$error.required">Please input description!</span>
+  		</div>
+  		<div class="form-group">
+    		<label for="price">Price</label>
+    		<input type="price" name="price" id="price" ng-model="$ctrl.applicationForm.price" required="required" class="form-control" min="3">
+    		<span ng-show="form.price.$error.number">Type is invalid!</span>
+  			<span ng-show="form.price.$error.required">Please input price!</span>
+  		</div>
+		<button type="submit" class="btn btn-primary">Upload</button>
+		<button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+	</form>
+</ul></ul></ul>

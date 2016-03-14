@@ -1,0 +1,255 @@
+
+/**
+ * Bootstrap Fonts
+ */
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
+  src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+  url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'),
+  url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+  url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+/**
+ *Font Awesome Fonts
+ */
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.1.0');
+  src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'),
+  url('../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'),
+  url('../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'),
+  url('../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
+ * App-wide Styles
+ */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+#navigation ul{
+    background-color: #6495ED;
+    font-size: 12px;
+    margin: 0px;
+    height: 50px; 
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px; Verdana,Georgia,serif;
+}
+#navigation ul li{
+    display: inline;
+    list-style-type: none;
+}
+#navigation ul li date{
+    font-size: 14px;
+    color:black;
+    position: relative;
+    right: 100px;
+}
+#navigation ul li time{
+    font-size: 14px;
+    color:black;
+    position: relative;
+    right: 80px;
+}
+#navigation ul li a{
+    background-color: #6495ED;
+    padding: .2em 1em;
+    font-family: Arial;
+    color:#fff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#navigation input{
+    background-color: #fff;
+    padding: .2em 1em;
+    font-size: 12px;
+    font-family: Arial;
+    color:#000;
+    text-align: left;
+    border-radius: 5px;
+}
+
+#navigation button{
+    background-color: #fff;
+    padding: .2em 1em;
+    font-size: 12px;
+    font-family: Arial;
+    color:#000;
+    text-align: left;
+    border-radius: 5px;
+}
+
+
+#navigation ul li a:hover{
+    color: #000;
+    background-color:yellow;
+}
+
+#navigation button:hover{
+    color: #000;
+    background-color:yellow;
+}
+
+#imageside {
+  margin:100px;
+  position: relative;
+  left:150px;
+  top:0px;
+}
+
+#news {
+  position: relative;
+  left:-150px;
+  top:-40px;
+  float: right;
+}
+
+#dynamicbutton {
+  position: relative;
+  left:580px;
+  top:50px;
+}
+
+#profile {
+  position: relative;
+  left:570px;
+  top:15px;
+  background-color: #fff;
+  font-size: 12px;
+  font-family: Arial;
+  color:#000;
+  text-align: left;
+}
+#display select {
+  position: relative;
+  left:-370px;
+  top:20px;
+  height:22px;
+  width:15%;
+  float: right;
+  background-color: #fff;
+  padding: .1em 1em;
+  font-size: 12px;
+  font-family: Arial;
+  color:#000;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#display button {
+  position: relative;
+  left:910px;
+  top:20px;
+  background-color: #fff;
+  padding: .1em 1em;
+  font-size: 12px;
+  font-family: Arial;
+  color:#000;
+  text-align: center;
+  border-radius: 5px;
+}
+#display table {
+  border: 1px solid black;
+  position: relative;
+  left:325px;
+  top:30px;
+  width: 50%;
+  background-color: #fff;
+  padding: .1em 1em;
+  font-size: 12px;
+  font-family: Arial;
+  color:#000;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#display th,td {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.ng-table-counts {
+  position: relative;
+  left:0px;
+  top:0px;
+}
+
+.ng-table-pager {
+  position: relative;
+  left:60%;
+  top:20px;
+}
+
+#visible select {
+  position: relative;
+  left:-945px;
+  top:20px;
+  height:22px;
+  width:15%;
+  float: right;
+  background-color: #fff;
+  padding: .1em 1em;
+  font-size: 12px;
+  font-family: Arial;
+  color:#000;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#visible button {
+  position: relative;
+  left:335px;
+  top:20px;
+  background-color: #fff;
+  padding: .1em 1em;
+  font-size: 12px;
+  font-family: Arial;
+  color:#000;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#footer{
+    background-color: white;
+    margin: 10px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 90%;
+    padding: 15px;
+    text-align: center;
+    clear: both;
+}
+
+
+#footer ul li{
+    display: inline;
+    list-style-type: none;
+}
+
+#footer ul li a{
+    background-color: white;
+    padding: .2em 1em;
+    font-family: Arial;
+    color:black;
+    text-decoration: none;
+}
+#footer ul li a:hover{
+    color: #000;
+    background-color:white;
+}
+
+

@@ -1,0 +1,41 @@
+<div id="navigation" ng-controller="NavbarController">
+  <ul>
+    <li>
+      <date>
+        {{nav.date | date:'yyyy.MM.dd'}}
+      </date>
+    </li>
+    <li>
+      <time time-update="nav.format"/>
+    </li>
+    <li ng-repeat="item in nav.menu">
+      <a ng-href="{{item.link}}">
+        {{item.title}}
+      </a>
+    </li>
+    <li uib-dropdown on-toggle="toggled(open)" ng-show="nav.ipCookie('LoginState') == 1">
+      <a href id="simple-dropdown" uib-dropdown-toggle>
+        {{nav.ipCookie('Login').name}}
+      </a>
+      <ul uib-dropdown-menu style="height: 150px;width: 50px" aria-labelledby="simple-dropdown">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="#">Update</a></li>
+        <li><a href="#">Message List</a></li>
+        <li><a href="#">Post New</a></li>
+        <li><a href="#">Request New</a></li>
+        <li><a ng-click="nav.logout()" ng-href="#">Logout</a></li>
+      </ul>
+    </li>
+    <li ng-show="!nav.ipCookie('LoginState')">
+        Guest      
+    </li>
+    <li>
+      <input type="text" placeholder="any keywords" ng-model="nav.keywords"/>
+    </li>
+    <li> 
+      <button type="submit" class="btn btn-default" ng-click="nav.search()">
+        Search
+      </button>
+    </li>
+  </ul>
+</div>

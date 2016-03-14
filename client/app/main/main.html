@@ -1,0 +1,10 @@
+<ul ng-repeat="app in $ctrl.applications">
+  <ul ng-show="app.stock_state">
+    <img ng-src="{{app.image}}">
+    <ul>{{app.name}}</ul>
+    <ul>{{app.description}}</ul>
+    <ul>Numbers of players: {{app.consumer_number | number}}</ul>
+    <ul ng-show="app.price==0">Free to play</ul>
+    <ul ng-show="app.price!=0">£{{app.price}}</ul>
+  </ul>
+</ul>

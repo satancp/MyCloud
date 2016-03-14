@@ -1,0 +1,52 @@
+<div>
+    <ul>
+    	<form name="form" ng-submit="$ctrl.handleRegBtnClick($ctrl.registrationForm)" role="form" novalidate>
+  			<div class="form-group">
+    			<label for="name">Username</label>
+    			<input type="name" name="name" id="name" ng-model="$ctrl.registrationForm.name" required="required" class="form-control" ng-minlength="3" ng-maxlength="10">
+  				<span ng-show="form.name.$error.required">Please input username!</span>
+  				<span ng-show="form.name.$error.minlength || form.name.$error.maxlength">Length of username is invalid!(Should be 3-10)</span>
+  			</div>
+  			<div class="form-group">
+    			<label for="email">Email</label>
+    			<input type="email" name="email" id="email" ng-model="$ctrl.registrationForm.email" required="required" class="form-control">
+  				<span ng-show="form.email.$error.email">Email is invalid!</span>
+  				<span ng-show="form.email.$error.required">Please input email!</span>
+  				<span ng-show="err.code == 11000 || err.code == 11001"><font color="red">This email has been used!</font></span>
+  			</div>
+			<div class="form-group">
+    			<label for="password">Password</label>
+    			<input type="password" name="password" id="password" ng-model="$ctrl.registrationForm.password" required="required" class="form-control" ng-minlength="7">
+  				<span ng-show="form.password.$error.minlength">Length of password is too short!(At least 7)</span>
+  			</div>
+			<div class="form-group">
+    			<label for="password_confirmation">Password confirmation</label>
+    			<input type="password" name="password_confirmation" id="password_confirmation" ng-model="$ctrl.registrationForm.password_confirmation" required="required" class="form-control" data-password-verify="$ctrl.registrationForm.password">
+  				<span ng-show="form.password_confirmation.$error.passwordVerify">Password is not correct!</span>
+  			</div>
+  			<div class="form-group">
+    			<label for="role">Role</label>
+    			<select type="role" name="role" id="role" ng-model="$ctrl.registrationForm.power" required="required" class="form-control">
+    				<option value="">--choose a role--</option>
+          			<option value="player">Player</option>
+          			<option value="developer">Developer</option>
+          		</select>
+  				<span ng-show="form.role.$error.required">Please select a role!</span>
+  			</div>
+  			<div class="form-group">
+    			<label for="squestion">Security question</label>
+    			<select type="squestion" name="squestion" id="squestion" ng-model="$ctrl.registrationForm.squestion" required="required" class="form-control" ng-options="q.content for q in $ctrl.questions">
+          			<option value="">--choose question--</option>
+          		</select>
+  				<span ng-show="form.squestion.$error.required">Please select a question!</span>
+  			</div>
+        	<div class="form-group">
+          		<label for="answer">Answer</label>
+          		<input type="answer" name="answer" id="answer" ng-model="$ctrl.registrationForm.sanswer" required="required" class="form-control">
+          		<span ng-show="form.answer.$error.required">Please input answer!</span>
+        	</div>
+			<button type="submit" class="btn btn-primary">Register</button>
+			<button class="btn btn-warning" type="button" ng-click="$ctrl.gettosignin()">Have an account?</button>
+		</form>
+	</ul>
+</div>

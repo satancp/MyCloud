@@ -1,0 +1,25 @@
+<div>
+    <ul>
+        <form ng-submit="$ctrl.handleLoginBtnClick($ctrl.loginForm)" role="form">
+  			<div class="form-group">
+    			<label for="name">Username</label>
+    			<input type="name" name="name" id="name" ng-model="$ctrl.loginForm.name" required="required" class="form-control">
+    			<span ng-show="errm == 1"><font color="red">This user dosen't exist!</font></span>
+  			</div>
+  			<div class="form-group">
+    			<label for="password">Password</label>
+    			<input type="password" name="password" id="password" ng-model="$ctrl.loginForm.password" required="required" class="form-control">
+    			<span ng-show="errm == 2"><font color="red">The password is incorrect!</font></span>
+  			</div>
+  			<button type="submit" class="btn btn-primary">Sign in</button>
+		</form>
+    </ul>
+</div>
+<div>
+	<ul>
+		<a href="/signup">Not registeration?</a>
+	</ul>
+	<ul>
+		<a href="/resetpassword">Forget password?</a>
+	</ul>
+</div>
