@@ -61,6 +61,16 @@ function handleEntityNotFound(res) {
   };
 }
 
+function handleEntityNotFoundSpecial(res) {
+  return function(entity) {
+    if (!entity[0]) {
+      res.status(404).end();
+      return null;
+    }
+    return entity;
+  };
+}
+
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
@@ -92,8 +102,8 @@ exports.create = function create(req, res) {
 
 // Login
 exports.login = function login(req, res) {
-  return User.find({name:req.body.name,password:req.body.password}).populate('wishlist').populate('applist').exec()
-    .then(handleEntityNotFound(res))
+  return User.find({name:req.body.name}).populate('wishlist').populate('applist').exec()
+    .then(handleEntityNotFoundSpecial(res))
     .then(checkUser(res))
     .catch(handleError(res));
 }

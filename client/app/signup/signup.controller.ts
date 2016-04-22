@@ -9,8 +9,10 @@ class SignupComponent {
   ipCookie : any;
   User : any; 
   questions : any;
+  Crypto : any;
+  $crypto : any;
   
-  constructor($location : any, $route : any, ipCookie : any, User : any) {
+  constructor($location : any, $route : any, ipCookie : any, User : any, Crypto : any, $crypto : any) {
 	this.$location = $location;
 	this.$route = $route;
 	this.registrationForm = {
@@ -19,6 +21,8 @@ class SignupComponent {
 	};
 	this.ipCookie = ipCookie;
 	this.User = User;
+	this.Crypto = Crypto;
+	this.$crypto = $crypto;
   }
 
   $onInit() {
@@ -34,6 +38,8 @@ class SignupComponent {
   }
 
   handleRegBtnClick(registrationForm : any) {
+	var encrypted = this.$crypto.encrypt(registrationForm.password, this.ipCookie('Crypto'));
+	registrationForm.password = encrypted;
 	this.User.addUser(registrationForm)
 	  .then(response => {
 		alert("Successfully!Enjoy~");

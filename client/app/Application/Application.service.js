@@ -17,6 +17,9 @@ angular.module('cloudApp')
       },
       deleteApplication : function(id) {
         return $http.delete('/api/applications'+id);
+      },
+      deploy : function(id) {
+        return $http.get('/api/applications/deploy/' + id);
       }
     };
     return api;

@@ -6,5 +6,6 @@
     <ul>Numbers of players: {{app.consumer_number | number}}</ul>
     <ul ng-show="app.price==0">Free to play</ul>
     <ul ng-show="app.price!=0">£{{app.price}}</ul>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.deploy(app._id)">Deploy</button>
   </ul>
 </ul>
