@@ -42,7 +42,9 @@ class SignupComponent {
   handleRegBtnClick(registrationForm : any) {
 	var encrypted = this.$crypto.encrypt(registrationForm.password, this.ipCookie('Crypto'));
 	registrationForm.password = encrypted;
-	if (registrationForm.power == 'player') registrationForm.account = 200;
+	if (registrationForm.power == 'player') {
+		registrationForm.account = 200;
+	}
 	else{
 		registrationForm.account = 0;
 	}
