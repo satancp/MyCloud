@@ -34,7 +34,7 @@ class MainController {
         });
     });
   }
-ese
+
   deploy(id : any) {
     this.Application.deploy(id).then(response => {
       alert('Successfully!');

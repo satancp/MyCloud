@@ -35,7 +35,6 @@ class AppdetailComponent {
 	}
 
 	isSubscribeApp() {
-
 		this.User.getUser(this.current_user._id)
 		.then(response =>{
 			this.current_user = response.data;
@@ -50,23 +49,22 @@ class AppdetailComponent {
 	}
 
 	subscribeApp (Application: any){
-		
 		if (this.isSubscribeApp())
 		{
 			alert("You have subscribed this app");
 		}
 		else
 		{
-		var appDetail = {
-			userId: this.current_user._id,
-			app: Application,
-			player: this.current_user
-		}
-		this.User.subscribeTheApplication(appDetail)
-			.then(response => {
-				this.current_user = response.data;
-				alert("Thank you to follow our App");
-			});
+			var appDetail = {
+				userId: this.current_user._id,
+				app: Application,
+				player: this.current_user
+			}
+			this.User.subscribeTheApplication(appDetail)
+				.then(response => {
+					this.current_user = response.data;
+					alert("Thank you to follow our App");
+				});
 		}
 	}
 
@@ -76,7 +74,6 @@ class AppdetailComponent {
 			app: Application,
 			player: this.current_user
 		}
-
 		if(this.current_user.account <= 0)
 		{
 			alert("Please Recharge at first");
@@ -93,24 +90,7 @@ class AppdetailComponent {
 			});
 		}
 	}
-
-		// this.User.getUser(this.current_user._id)
-		// 	.then(response => {
-		// 		if (response.data.account <= 0) {
-		// 			alert("Please Recharge at first");
-		// 		}
-		// 		else {
-		// 			this.User.playTheApplication(playDetail)
-		// 				.then(response => {
-		// 					this.current_user = response.data;
-		// 					alert("Graduations! Enjoy the Journey of " + this.current_application.name);
-		// 				});
-		// 		}
-		// 	})
-
-	
-
-	}
+}
 
 	angular.module('cloudApp')
 		.component('appdetail', {
