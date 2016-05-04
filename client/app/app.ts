@@ -8,13 +8,13 @@ angular.module('cloudApp', [
   'ngRoute',
   'ui.bootstrap',
   'ipCookie',
-  'lr.upload'
+  'lr.upload',
+  'mdo-angular-cryptography'
 ])
   .config(function($routeProvider, $locationProvider) {
     $routeProvider
       .otherwise({
         redirectTo: '/'
       });
-
     $locationProvider.html5Mode(true);
   });
