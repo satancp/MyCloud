@@ -19,7 +19,7 @@ Application.find({}).remove()
       stock_state: true,
       image:'http://cdn.akamai.steamstatic.com/steam/apps/570/header.jpg?t=1457137796',
       price: 0,
-      consumer_number: 513107,
+      consumer_number: 0,
       developer: null
     }, {
       name: 'Rise of the Tomb Raider',
@@ -31,8 +31,8 @@ Application.find({}).remove()
       'the secret of immortality.',
       stock_state: true,
       image:'http://cdn.akamai.steamstatic.com/steam/apps/391220/header.jpg?t=1457030769',
-      price: 39.99,
-      consumer_number: 10512,
+      price: 1,
+      consumer_number: 0,
       developer: null
     }, {
       name: 'Tom Clancy’s The Division',
@@ -43,8 +43,8 @@ Application.find({}).remove()
       'autonomous unit of tactical agents, is activated.',
       stock_state: true,
       image:'http://cdn.akamai.steamstatic.com/steam/apps/365590/header.jpg?t=1457537972',
-      price: 39.99,
-      consumer_number: 11461,
+      price: 2,
+      consumer_number: 0,
       developer: null
     }, {
       name: 'The Elder Scrolls® Online: Tamriel Unlimited™',
@@ -56,8 +56,8 @@ Application.find({}).remove()
       'shape your destiny. No game subscription required.',
       stock_state: true,
       image:'http://cdn.akamai.steamstatic.com/steam/apps/306130/header.jpg?t=1450415625',
-      price: 24.99,
-      consumer_number: 7411,
+      price: 3,
+      consumer_number: 0,
       developer: null
     }, {
       name: 'SMITE',
@@ -69,8 +69,8 @@ Application.find({}).remove()
       "believer.",
       stock_state: true,
       image:'http://cdn.akamai.steamstatic.com/steam/apps/386360/header.jpg?t=1456763461',
-      price: 0,
-      consumer_number: 11388,
+      price: 4,
+      consumer_number: 0,
       developer: null
     }, {
       name: 'Counter-Strike: Global Offensive',
@@ -82,8 +82,8 @@ Application.find({}).remove()
       'content (de_dust, etc.).',
       stock_state: true,
       image:'http://cdn.akamai.steamstatic.com/steam/apps/730/header.jpg?t=1457137786',
-      price: 11.99,
-      consumer_number: 1121892,
+      price: 5,
+      consumer_number: 0,
       developer: null
     });
   });

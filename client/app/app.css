@@ -39,8 +39,10 @@
 }
 
 #navigation ul{
-    background-color: #6495ED;
+    /*background-color: #6495ED;*/
+    background-color: black;
     font-size: 12px;
+    font-family: Geneva,Tahoma,sans-serif;
     margin: 0px;
     height: 50px; 
     padding: 10px;
@@ -53,15 +55,15 @@
 }
 #navigation ul li date{
     font-size: 14px;
-    color:black;
+    color:white;
     position: relative;
-    right: 100px;
+    left: -20%;
 }
 #navigation ul li time{
     font-size: 14px;
-    color:black;
+    color:white;
     position: relative;
-    right: 80px;
+    left: -19%;
 }
 #navigation ul li a{
     background-color: #6495ED;
@@ -251,5 +253,27 @@
     color: #000;
     background-color:white;
 }
+
+#name,#password{
+    width: 20%;
+}
+.form-group {
+   color: #800000;
+  /*color: rgba(89, 0, 127, 0.75);*/
+}
+
+.form-registration{
+   text-align:left;
+   position: relative;
+   left: 35%;
+   top:30%;
+   width:20%;
+}
+#registration_button{
+   margin-left: 35%;
+}
+
+
+
 
 

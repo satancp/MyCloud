@@ -23,6 +23,14 @@ angular.module('cloudApp')
       },
       checkUser : function(query) {
         return $http.get('/api/solvequerys?api='+query.api+'&type='+query.type+'&content='+query.content+'&auth='+query.auth);
+      },
+
+      playTheApplication : function (playDetails) {
+        return $http.put('/api/users/'+ playDetails.userId + '/playApplication', playDetails);
+      },
+
+      subscribeTheApplication : function (appDetails){
+        return $http.put('/api/users/' + appDetails.userId + '/subscribeApplication', appDetails);
       }
     };
     return api;

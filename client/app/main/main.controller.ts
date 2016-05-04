@@ -40,6 +40,10 @@ ese
       alert('Successfully!');
     });
   }
+
+  cancel() {
+
+  }
 }
 
 angular.module('cloudApp')

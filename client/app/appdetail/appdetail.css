@@ -1,0 +1,42 @@
+.details {
+	margin-bottom: 20%;
+}
+
+.details img {
+	margin-left: 15%;
+	height: 100%;
+	width: 85%;
+}
+
+.details .name {
+	text-align: right;
+	font-family: Times New Roman;
+	font-size: 1.1em;
+	margin-bottom: 1.5%;
+}
+
+.details .param {
+	text-align: left;
+	font-family: Times New Roman;
+	font-size: 1.1em;
+	margin-bottom: 1.5%;
+}
+
+.details a {
+	color: dimgray;
+	font-size: 1.5em;
+}
+
+#materialdetailstab th{
+	background-color:#e6f9ff;
+}
+
+.details h3 {
+	text-align: center;
+	font-family: Times New Roman;
+	font-weight: bold;
+	font-size: 2.3em;
+	margin-bottom: 2%;
+}
+
+
