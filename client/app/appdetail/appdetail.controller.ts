@@ -19,7 +19,6 @@ class AppdetailComponent {
 		this.$location = $location;
 		this.$route = $route;
 		this.current_application = {};
-
 	}
 
 	$onInit() {
