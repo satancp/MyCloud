@@ -11,7 +11,6 @@
 
 var _ = require('lodash');
 var Crypto = require('./crypto.model');
-var CryptoJS = require('crypto-js');
 var stringify = require('json-stringify-safe');
 
 function respondWithResult(res, statusCode) {
