@@ -24,8 +24,8 @@ class SigninComponent {
 
   handleLoginBtnClick(loginForm : any) {
 	this.User.loginUser(loginForm)
-	  .then(response => {
-	  	this.ipCookie('LoginState', 1);
+    .then(response => {
+	  this.ipCookie('LoginState', 1);
 		this.ipCookie('Login', response.data);
 		this.$location.path('/');
 		this.$route.reload();

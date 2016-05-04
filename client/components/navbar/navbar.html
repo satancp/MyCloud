@@ -1,6 +1,6 @@
-<div id="navigation" ng-controller="NavbarController">
-  <ul>
-    <li>
+<div class = "row" id="navigation" ng-controller="NavbarController">
+  <ul id = "menubar">
+    <li >
       <date>
         {{nav.date | date:'yyyy.MM.dd'}}
       </date>
@@ -13,6 +13,7 @@
         {{item.title}}
       </a>
     </li>
+
     <li uib-dropdown on-toggle="toggled(open)" ng-show="nav.ipCookie('LoginState') == 1">
       <a href id="simple-dropdown" uib-dropdown-toggle>
         {{nav.ipCookie('Login').name}}
@@ -27,7 +28,7 @@
       </ul>
     </li>
     <li ng-show="!nav.ipCookie('LoginState')">
-        Guest      
+        GUEST   
     </li>
     <li>
       <input type="text" placeholder="any keywords" ng-model="nav.keywords"/>

@@ -29,6 +29,10 @@ class MainController {
         this.applications = response.data;
       });
   }
+
+  cancel() {
+
+  }
 }
 
 angular.module('cloudApp')

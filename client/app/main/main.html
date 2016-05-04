@@ -1,10 +1,22 @@
-<ul ng-repeat="app in $ctrl.applications">
-  <ul ng-show="app.stock_state">
-    <img ng-src="{{app.image}}">
-    <ul>{{app.name}}</ul>
-    <ul>{{app.description}}</ul>
-    <ul>Numbers of players: {{app.consumer_number | number}}</ul>
-    <ul ng-show="app.price==0">Free to play</ul>
-    <ul ng-show="app.price!=0">£{{app.price}}</ul>
-  </ul>
-</ul>
+
+ <div class="section">
+    <div class="container">
+        <div ng-repeat="app in $ctrl.applications">
+            <div class = "row">
+                  <div class = "row">
+                     <div class = "col-md-4"> 
+                      <img ng-src="{{app.image}}" style ="height: 90%; width: 85%;">
+                     </div>
+                  </div>
+                  <div class = "row">
+                      <div class= "col-md-4" ng-show="app.stock_state">
+                      <p><strong>{{app.name}}</strong></p>	
+                      <p>{{app.description}}</p>
+                      <p><strong>Numbers of players:</strong> {{app.consumer_number | number}}</p>
+                        <a href="/applications/{{app._id}}/appdetail"><button class="btn btn-primaty">Details</button></a>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

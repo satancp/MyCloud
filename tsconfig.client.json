@@ -10,8 +10,12 @@
     ],
     "files": [
         "client/app/app.ts",
+        "client/app/appdetail/appdetail.controller.ts",
+        "client/app/appdetail/appdetail.ts",
         "client/app/main/main.controller.ts",
         "client/app/main/main.ts",
+        "client/app/peanutbank/peanutbank.controller.ts",
+        "client/app/peanutbank/peanutbank.ts",
         "client/app/profile/profile.controller.ts",
         "client/app/profile/profile.ts",
         "client/app/signin/signin.controller.ts",

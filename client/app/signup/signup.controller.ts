@@ -15,8 +15,10 @@ class SignupComponent {
 	this.$route = $route;
 	this.registrationForm = {
 	  wishlist: null,
-	  applist: null
+	  applist: null,
+	  account: 0
 	};
+
 	this.ipCookie = ipCookie;
 	this.User = User;
   }
@@ -33,7 +35,13 @@ class SignupComponent {
 	this.$route.reload();
   }
 
-  handleRegBtnClick(registrationForm : any) {
+  handleRegBtnClick(registrationForm : any) {	
+	
+	if (registrationForm.power == 'player') registrationForm.account = 200;
+	else{
+		registrationForm.account = 0;
+	}
+
 	this.User.addUser(registrationForm)
 	  .then(response => {
 		alert("Successfully!Enjoy~");
@@ -41,7 +49,7 @@ class SignupComponent {
 		this.ipCookie('Login', response.data);
 		this.$location.path('/');
 		this.$route.reload();
-	  });
+	});
   }
 }
 

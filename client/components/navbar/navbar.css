@@ -1,0 +1,7 @@
+#menubar li{
+  font-family: myFirstFont;
+  font-weight: bold;
+  float:left;
+  color: white;
+  margin-left: 20px;
+}

@@ -9,17 +9,23 @@ var WishSchema = new mongoose.Schema({
 
 var AppSchema = new mongoose.Schema({
         app: {type: mongoose.Schema.Types.ObjectId, ref: 'Application'},
-        added_date: { type: Date, required: true }
+        added_date: { type: Date, required: true },
+});
+
+var FollowAppSchema = new mongoose.Schema({
+        app: {type: mongoose.Schema.Types.ObjectId, ref: 'Application'}
 });
 
 var UserSchema = new mongoose.Schema({
         name: { type: String, required: true, unique: true, trim: true},
         email: { type: String, required: true , unique: true, trim: true},
         password: { type: String, required: true },
+        account: { type: Number, required: true },
         squestion: {type: mongoose.Schema.Types.ObjectId, ref: 'Question'},
         sanswer: { type: String, required: true }, 
         wishlist: [WishSchema],
         applist: [AppSchema],
+        follow_app: [FollowAppSchema],
         power: { type: String, required: true }
 });
 
