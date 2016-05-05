@@ -6,6 +6,7 @@
 'use strict';
 var Application = require('../api/application/application.model');
 var Question = require('../api/question/question.model');
+var User = require('../api/user/user.model');
 
 Application.find({}).remove()
   .then(() => {
@@ -100,5 +101,17 @@ Question.find({}).remove()
       content: 'Where would you like to live?',
     });
   });
+User.find({}).remove()
+.then(() => {
+    User.create({
+    name:  'Admin',
+    email: 'zwang94@sheffield.ac.uk',
+    password: 'helloworld',
+    account: 0,
+    squestion: "5722a9bcfa3c543134d5c389",
+    sanswer: "bbbbb", 
+    power: 'Administrator'
+    });
+});
 
 
