@@ -10,6 +10,7 @@ class AppdetailComponent {
 	ipCookie: any;
 	current_user : any;
 	User : any;
+  price : any;
 
 	constructor($routeParams: any, ipCookie: any, $location: any, $route : any,  Application: any, User : any) {
 		this.App_id = $routeParams.id;
@@ -25,6 +26,7 @@ class AppdetailComponent {
 		this.Application.getApplication(this.App_id)
 			.then(response => {
 				this.current_application = response.data;
+        this.price = response.data.price;
 			});
 		var tempUser = this.ipCookie('Login');
 		this.User.getUser(tempUser._id)
@@ -37,7 +39,7 @@ class AppdetailComponent {
 		this.User.getUser(this.current_user._id)
 		.then(response =>{
 			this.current_user = response.data;
-		});		
+		});
 		var followapp = this.current_user.follow_app;
 		for (var i = 0; i < followapp.length; i++) {
 			if (this.current_application._id == followapp[i]._id) {
@@ -85,13 +87,15 @@ class AppdetailComponent {
 			this.User.playTheApplication(playDetail)
 			.then(response => {
 					this.current_user = response.data;
-					alert("Graduations! Enjoy the Journey of " + this.current_application.name);
+					alert("Graduations! Enjoy the Journey of " + this.current_application.name
+            + "\n" + this.price + "has been charged");
 			});
 		}
 	}
 }
 
-	angular.module('cloudApp')
+	//noinspection TypeScriptUnresolvedFunction
+  angular.module('cloudApp')
 		.component('appdetail', {
     templateUrl: 'app/appdetail/appdetail.html',
     controller: AppdetailComponent
