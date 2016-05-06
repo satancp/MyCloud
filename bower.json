@@ -14,7 +14,7 @@
     "font-awesome": ">=4.1.0",
     "lodash": "~2.4.1",
     "angular-cookie": ">=1.0.*",
-    "angular-upload": ">=0.0.0",
+    "ng-file-upload": ">=0.0.0",
     "angular-cryptography": ">=0.0.0"
   },
   "devDependencies": {

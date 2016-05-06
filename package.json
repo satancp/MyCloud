@@ -19,7 +19,10 @@
     "mongoose": "^4.1.2",
     "bluebird": "^3.3.3",
     "connect-mongo": "^0.8.1",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "connect-multiparty" : "^2.0.0",
+    "decompress-zip" : "^0.3.0",
+    "restler" : "^3.4.0"
   },
   "devDependencies": {
     "typings":"^0.7.7",

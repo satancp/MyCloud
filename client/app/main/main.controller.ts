@@ -35,12 +35,6 @@ class MainController {
     });
   }
 
-  deploy(id : any) {
-    this.Application.deploy(id).then(response => {
-      alert('Successfully!');
-    });
-  }
-
   cancel() {
 
   }

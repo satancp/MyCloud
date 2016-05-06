@@ -10,8 +10,9 @@ class AppdetailComponent {
 	ipCookie: any;
 	current_user : any;
 	User : any;
-
-	constructor($routeParams: any, ipCookie: any, $location: any, $route : any,  Application: any, User : any) {
+	$window : any;
+	
+	constructor($routeParams: any, ipCookie: any, $location: any, $route : any,  Application: any, User : any, $window : any) {
 		this.App_id = $routeParams.id;
 		this.ipCookie = ipCookie;
 		this.Application = Application;
@@ -19,6 +20,7 @@ class AppdetailComponent {
 		this.$location = $location;
 		this.$route = $route;
 		this.current_application = {};
+		this.$window = $window;
 	}
 
 	$onInit() {
@@ -82,11 +84,12 @@ class AppdetailComponent {
 			alert("Please subscribe the app at first");
 	    }
 		else {
-			this.User.playTheApplication(playDetail)
-			.then(response => {
-					this.current_user = response.data;
-					alert("Graduations! Enjoy the Journey of " + this.current_application.name);
-			});
+			if(this.current_application.extension_name.indexOf('.war') != -1) {
+				this.$window.location.href = 'http://143.167.224.143:8080/' + this.current_user._id + '-' + this.current_application.name;
+			}
+			else {
+				this.$window.location.href = 'http://143.167.224.143:' + this.current_application.port + '/';
+			}
 		}
 	}
 }

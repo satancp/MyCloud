@@ -12,6 +12,8 @@
 var _ = require('lodash');
 var Application = require('./application.model');
 var shell = require('shelljs');
+var fs = require('fs');
+var DecompressZip = require('decompress-zip');
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -22,21 +24,19 @@ function respondWithResult(res, statusCode) {
   };
 }
 
-function doDeploy(res, statusCode) {
-  statusCode = statusCode || 200;
+function doDeploy(updates) {
   return function(entity) {
-    if (entity) {
-      var command1 = "osascript -e ";
-      var command2 = 'tell application "Terminal" to do script ';
-      var command3 = "sshpass -p 'tianze1228' ssh -o StrictHostKeyChecking=no wangzh1228@143.167.238.68";
-      var command4 = " -e ";
-      var command5 = '"cd /Users/wangzh1228/Desktop/MyCloud"';
-      var command6 = '"grunt serve"';
-      var command7 = '"delay 2"';
-      var command = command1 + "'" + command2 + '"' + command3 + '"' + "'" + command4 + "'" + command7 + "'" + command4 + "'" + command2 + command5 + " in front window'" + command4 + "'" + command2 + command6 + " in front window'";
-      shell.exec(command, {silent:false}).stdout;
-      res.status(statusCode).json(entity);
-    }
+    var updated = _.merge(entity, updates);
+    return updated.save()
+      .then(updated => {
+          var http = require('http');
+          http.get({
+            host: '143.167.224.143',
+            port: 3000,
+            path: '/deploy/' + updated.developer + '/' + updated.name + '/' + updated.port
+          });
+          return updated;
+      });
   };
 }
 
@@ -97,7 +97,8 @@ exports.show = function show(req, res) {
 exports.deploy = function deploy(req, res) {
   return Application.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
-    .then(doDeploy(res))
+    .then(doDeploy({deploy_state : 2}))
+    .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
@@ -126,4 +127,17 @@ exports.destroy = function destroy(req, res) {
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
+}
+
+exports.save = function save(req, res) {
+  var request = require('request');
+  var req1 = request.post('http://143.167.224.143:3000/save/' + req.params.userid + '/' + req.params.appname + '/' + req.params.name, function (err, resp, body) {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).end();
+    }
+  });
+  var form = req1.form();
+  form.append('file', fs.createReadStream(req.files.file.path));
 }

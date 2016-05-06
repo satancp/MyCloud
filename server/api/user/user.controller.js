@@ -12,6 +12,8 @@
 var _ = require('lodash');
 var User = require('./user.model');
 var Application = require('../application/application.model');
+var fs = require('fs');
+var http = require('http');
 
 var validationError = function(res, err) {
     return res.json(422, err);
@@ -21,6 +23,21 @@ function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
     if (entity) {
+      res.status(statusCode).json(entity);
+    }
+  };
+}
+
+function respondsignup(res, statusCode) {
+  statusCode = statusCode || 200;
+  return function(entity) {
+    if (entity) {
+      var id = entity._id;
+      http.get({
+        host: '143.167.224.143',
+        port: 3000,
+        path: '/create/' + id
+      })
       res.status(statusCode).json(entity);
     }
   };
@@ -85,14 +102,14 @@ function handleError(res, statusCode) {
 
 // Gets a list of Users
 exports.index = function index(req, res) {
-  return User.find().populate('wishlist').populate('applist').exec()
+  return User.find().populate('wishlist.app').populate('applist.app').populate('follow_app.app').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a single User from the DB
 exports.show = function show(req, res) {
-  return User.findById(req.params.id).populate('wishlist').populate('applist').exec()
+  return User.findById(req.params.id).populate('wishlist.app').populate('applist.app').populate('follow_app.app').exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -101,13 +118,13 @@ exports.show = function show(req, res) {
 // Creates a new User in the  DB
 exports.create = function create(req, res) {
   return User.create(req.body)
-    .then(respondWithResult(res, 201))
+    .then(respondsignup(res, 201))
     .catch(handleError(res));
 }
 
 // Login
 exports.login = function login(req, res) {
-  return User.find({name:req.body.name}).populate('wishlist').populate('applist').exec()
+  return User.find({name:req.body.name}).populate('wishlist.app').populate('applist.app').populate('follow_app.app').exec()
     .then(handleEntityNotFoundSpecial(res))
     .then(checkUser(res))
     .catch(handleError(res));
@@ -115,14 +132,14 @@ exports.login = function login(req, res) {
 
 // Updates an existing User in the DB
 exports.update = function update(req, res) {
-  if (req.body._id) {
-    delete req.body._id;
-  }
-  return User.findById(req.params.id).populate('wishlist').populate('applist').exec()
-    .then(handleEntityNotFound(res))
-    .then(saveUpdates(req.body))
-    .then(respondWithResult(res))
-    .catch(handleError(res));
+  User.findOne({ _id: req.params.id }, function (err, doc){
+    doc.applist = req.body;
+    doc.save(function() {
+      User.findById(req.params.id).populate('wishlist.app').populate('applist.app').populate('follow_app.app').exec(function(err,result) {
+        res.status(200).json(result);
+      })
+    });
+  })
 }
 
 // Deletes a User from the DB
@@ -198,47 +215,3 @@ exports.subscribeApplication = function subscribeApplication(req, res)
    }).exec()
    .then(respondWithResult(res));
 }
-
-
-// exports.followTheUser = function(req, res) {
-//     var currentUser = req.body.follower;
-//     var theUser = req.body.follow;  
-//     var userId = req.params.id; 
-
-//     User.findById(userId, function(err, user) {
-//         var to_follow = {
-//             userId: currentUser._id,
-//             follower: currentUser
-//         }
-//         if (user != null) {
-//             user.followed.push(to_follow);
-//             user.save(function(err) {
-//                 if (err) return validationError(res, err);
-
-//                 User.findById(currentUser._id, function(err, follow_user) {
-//                     var follow_me = {
-//                         userId: userId,
-//                         follow: theUser
-//                     }
-//                     if (follow_user != null) {
-//                         follow_user.followed.push(follow_me);
-//                         follow_user.save(function(err) {
-//                             if (err) return validationError(res, err);
-//                             res.send(200);
-//                         });
-//                     } else {
-//                         res.send(403);
-
-//                     }
-//                 });
-//             });
-//         } else {
-//             res.send(403);
-//         }
-//     });
-// };
-
-
-
-
-

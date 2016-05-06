@@ -16,8 +16,8 @@ class SignupComponent {
 	this.$location = $location;
 	this.$route = $route;
 	this.registrationForm = {
-	  wishlist: null,
-	  applist: null,
+	  wishlist: [],
+	  applist: [],
 	  account: 0
 	};
 
@@ -42,6 +42,9 @@ class SignupComponent {
   handleRegBtnClick(registrationForm : any) {
 	var encrypted = this.$crypto.encrypt(registrationForm.password, this.ipCookie('Crypto'));
 	registrationForm.password = encrypted;
+	registrationForm.applist = [];
+	registrationForm.wishlist = [];
+	registrationForm.follow_app = [];
 	if (registrationForm.power == 'player') {
 		registrationForm.account = 200;
 	}

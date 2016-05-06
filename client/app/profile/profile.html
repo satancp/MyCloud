@@ -23,6 +23,9 @@
     <li ng-show="app.app.price!=0">Price: £{{app.app.price}}</li>
     <li ng-show="app.app.stock_state">Stock State: In Stock</li>
     <li ng-show="!app.app.stock_state">Stock State: Not In Stock</li>
+    <li ng-show="app.app.deploy_state==0"><button class="btn btn-warning" type="button" ng-click="$ctrl.deploy(app.app._id)">Deploy</button></li>
+    <li ng-show="app.app.deploy_state==1">Processing....</li>
+    <li ng-show="app.app.deploy_state==2">Has been deployed</li>
 </ul>
 <ul><ul>
 	<button ng-show="!$ctrl.ipCookie('Upload')" class="btn btn-warning" type="button" ng-click="$ctrl.uploadapp()">Upload new app</button>
@@ -31,8 +34,8 @@
 <ul ng-show="$ctrl.ipCookie('Upload')">
     <form name="form" ng-submit="$ctrl.handleUploadBtnClick($ctrl.applicationForm)" role="form"  novalidate>
         <div class="form-group">
-    		<label for="name">Select Zip File</label>
-            <input name="$ctrl.uploadedFile" type="file"/>
+    		<label for="name">Select files:</label>
+            <input type="file" class="button" ngf-select ng-model="$ctrl.uploadedFile" ngf-multiple="false"></input>
         </div>
   		<div class="form-group">
     		<label for="name">Name</label>

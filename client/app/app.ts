@@ -8,7 +8,7 @@ angular.module('cloudApp', [
   'ngRoute',
   'ui.bootstrap',
   'ipCookie',
-  'lr.upload',
+  'ngFileUpload',
   'mdo-angular-cryptography'
 ])
   .config(function($routeProvider, $locationProvider) {

@@ -16,7 +16,7 @@
 
     <li uib-dropdown on-toggle="toggled(open)" ng-show="nav.ipCookie('LoginState') == 1">
       <a href id="simple-dropdown" uib-dropdown-toggle>
-        {{nav.ipCookie('Login').name}}
+        {{nav.ipCookie('Login').name}}{{nav.state_cookie.name}}
       </a>
       <ul uib-dropdown-menu style="height: 150px;width: 50px" aria-labelledby="simple-dropdown">
         <li><a href="/profile">Profile</a></li>
