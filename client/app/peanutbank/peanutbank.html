@@ -1,1 +1,13 @@
-<div>This is the peanutbank view.</div>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div><br/><br/>
+        choose money:<br/>
+        <!--<button>5</button> <button>10</button> <button>50</button> <button>100</button><br/>-->
+        <form ng-submit="$ctrl.chargeAcct($ctrl.chargeNum)" role="form">
+          <input type="number" name="chargeNum" min="50" max="250" step="50" required ng-model="$ctrl.chargeNum"><br/>
+          <br/>
+          <button class="btn btn-info btn-md">Pay</button>
+        </form>
+      </div>
+    </div></div></div>

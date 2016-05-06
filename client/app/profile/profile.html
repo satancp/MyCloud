@@ -1,6 +1,7 @@
 <ul>Username:{{$ctrl.current_user.name}}</ul>
 <ul>Email:{{$ctrl.current_user.email}}</ul>
-<br><ul>Wish List: 
+<ul>balance:{{$ctrl.current_balance}}</ul>
+<br><ul>Wish List:
 <ul ng-repeat="app in $ctrl.current_user.wishlist">
 	<img ng-src="{{app.app.image}}">
 	<li>Name: {{app.app.name}}</li>
@@ -12,7 +13,7 @@
     <li ng-show="app.app.stock_state">Stock State: In Stock</li>
     <li ng-show="!app.app.stock_state">Stock State: Not In Stock</li>
 </ul></ul><ul ng-show="$ctrl.current_user.power=='developer'">
-<br>App List: 
+<br>App List:
 <ul ng-repeat="app in $ctrl.current_user.applist">
 	<img ng-src="{{app.app.image}}">
 	<li>Name: {{app.app.name}}</li>

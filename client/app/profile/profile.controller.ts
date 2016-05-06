@@ -16,6 +16,7 @@ class ProfileComponent {
   uploadedFile : any;
   temp : any;
   appnumber : any;
+  current_balence : any;
 
   constructor($location : any, $route : any, ipCookie : any, User : any, Application : any, Upload : any) {
     this.$location = $location;
@@ -33,6 +34,10 @@ class ProfileComponent {
 	this.Application.getApplications()
 		.then(response => {
 			this.appnumber = response.data.length;
+		});
+	this.current_balence = this.User.getUser(this.current_user._id)
+		.then(response => {
+			this.current_balence = response.data.account;
 		});
   }
 

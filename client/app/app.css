@@ -39,72 +39,128 @@
 }
 
 #navigation ul{
-    /*background-color: #6495ED;*/
-    background-color: black;
-    font-size: 12px;
-    font-family: Geneva,Tahoma,sans-serif;
-    margin: 0px;
-    height: 50px; 
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px; Verdana,Georgia,serif;
+  /*background-color: #6495ED;*/
+  list-style-type: none;
+  background-color: #083439;
+  font-size: 1.3em;
+  font-family: Geneva,Tahoma,sans-serif;
+  margin: 0px;
+  padding: 40px;
+  overflow: inherit;
+  position: relative;
+  bottom: 25px;
 }
+
+#navigation li {
+  float: left;
+}
+
 #navigation ul li{
-    display: inline;
-    list-style-type: none;
+  display: inline;
+  list-style-type: none;
+  float: left;
 }
 #navigation ul li date{
-    font-size: 14px;
-    color:white;
-    position: relative;
-    left: -20%;
+  font-size: 1em;
+  font-family: "Roboto Mono", Menlo, monospace;
+  color: #ffffff;
+  position: relative;
+  left: -5%;
 }
 #navigation ul li time{
-    font-size: 14px;
-    color:white;
-    position: relative;
-    left: -19%;
+  font-size: 1em;
+  font-family: "Roboto Mono", Menlo, monospace;
+  color: #ffffff;
+  position: relative;
+  left: -5%;
 }
 #navigation ul li a{
-    background-color: #6495ED;
-    padding: .2em 1em;
-    font-family: Arial;
-    color:#fff;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 5px;
+  background-color: #000000;
+  padding: .2em 1em;
+  font-family: "Roboto Mono", Menlo, monospace;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
 }
 
 #navigation input{
-    background-color: #fff;
-    padding: .2em 1em;
-    font-size: 12px;
-    font-family: Arial;
-    color:#000;
-    text-align: left;
-    border-radius: 5px;
+  background-color: #fff;
+  padding: .47em .5em;
+  font-size: 12px;
+  font-family: Arial;
+  color:#000;
+  text-align: left;
+  border: 0px;
+  border-radius: 5px 0px 0px 5px;
+  position: relative;
+  bottom: .22em;
 }
 
 #navigation button{
-    background-color: #fff;
-    padding: .2em 1em;
-    font-size: 12px;
-    font-family: Arial;
-    color:#000;
-    text-align: left;
-    border-radius: 5px;
+  background-color: #a55f6e;
+  padding: .3em 1em;
+  font-size: 15px;
+  font-family: "Roboto Mono", Menlo, monospace;
+  color: #ffffff;
+  text-align: left;
+  border-radius: 0px 10px 10px 0px;
+  border: 0px;
+  position: relative;
+  right: 1.30em;
+  bottom: .16em;
 }
 
-
 #navigation ul li a:hover{
-    color: #000;
-    background-color:yellow;
+  color: #ffffff;
 }
 
 #navigation button:hover{
-    color: #000;
-    background-color:yellow;
+  color: #818181;
+  background-color: #eb909f;
 }
+
+
+#navigation .dropbtn {
+}
+
+#navigation .dropbtn:hover{
+  z-index: 99;
+  background-image: url('../assets/images/menu-active.png');
+}
+
+#navigation .dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 9999;
+}
+
+#navigation .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#navigation .dropdown-content a {
+  color: #ebebeb;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#navigation .dropdown-content a:hover {background-color: #09351b
+}
+
+#navigation .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#navigation .dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
 
 #imageside {
   margin:100px;
@@ -226,52 +282,53 @@
 }
 
 #footer{
-    background-color: white;
-    margin: 10px;
-    height: 30px;
-    border-radius: 5px;
-    font-size: 90%;
-    padding: 15px;
-    text-align: center;
-    clear: both;
+  background-color: white;
+  margin: 10px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 90%;
+  padding: 15px;
+  text-align: center;
+  clear: both;
 }
 
 
 #footer ul li{
-    display: inline;
-    list-style-type: none;
+  display: inline;
+  list-style-type: none;
 }
 
 #footer ul li a{
-    background-color: white;
-    padding: .2em 1em;
-    font-family: Arial;
-    color:black;
-    text-decoration: none;
+  background-color: white;
+  padding: .2em 1em;
+  font-family: Arial;
+  color:black;
+  text-decoration: none;
 }
 #footer ul li a:hover{
-    color: #000;
-    background-color:white;
+  color: #000;
+  background-color:white;
 }
 
 #name,#password{
-    width: 20%;
+  width: 20%;
 }
 .form-group {
-   color: #800000;
+  color: #800000;
   /*color: rgba(89, 0, 127, 0.75);*/
 }
 
 .form-registration{
-   text-align:left;
-   position: relative;
-   left: 35%;
-   top:30%;
-   width:20%;
+  text-align:left;
+  position: relative;
+  left: 35%;
+  top:30%;
+  width:20%;
 }
 #registration_button{
-   margin-left: 35%;
+  margin-left: 35%;
 }
+
 
 
 

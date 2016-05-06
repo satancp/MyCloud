@@ -1,21 +1,22 @@
- <div class="section">
-    <div class="container">
-        <div ng-repeat="app in $ctrl.applications">
-            <div class = "row">
-                  <div class = "row">
-                     <div class = "col-md-4"> 
-                      <img ng-src="{{app.image}}" style ="height: 90%; width: 85%;">
-                     </div>
-                  </div>
-                  <div class = "row">
-                      <div class= "col-md-4" ng-show="app.stock_state">
-                      <p><strong>{{app.name}}</strong></p>	
-                      <p>{{app.description}}</p>
-                      <p><strong>Numbers of players:</strong> {{app.consumer_number | number}}</p>
-                        <a href="/applications/{{app._id}}/appdetail"><button class="btn btn-primaty">Details</button></a>
-                      </div>
-                  </div>
-            </div>
+
+<div class="section">
+  <div class="container">
+    <div class = "col-md-4" ng-repeat="app in $ctrl.applications">
+      <div class = "row"><br/>
+        <div class = "row">
+          <div>
+            <img ng-src="{{app.image}}" style ="height: 90%; width: 85%;">
+          </div>
         </div>
+        <div class = "row">
+          <div ng-show="app.stock_state">
+            <div><strong>{{app.name}}</strong></div>
+            <!--<ul style="position: relative; right: 40px;">{{app.description}}</ul>-->
+            <p><strong>Numbers of players:</strong> {{app.consumer_number | number}}</p>
+            <a href="/applications/{{app._id}}/appdetail"><button class="btn btn-primaty">Details</button></a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
